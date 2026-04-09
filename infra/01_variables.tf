@@ -17,3 +17,12 @@ variable "env" {
 # AWS
 # ##############################
 variable "aws_region" { type = string }
+
+# ##############################
+# Bedrock
+# ##############################
+
+variable "embedding_model" {
+  type    = string
+  default = "amazon.titan-embed-text-v2:0"
+}
