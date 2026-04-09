@@ -6,12 +6,16 @@ import os
 KB_ID = os.environ.get('KB_ID')
 MODEL_ID = os.environ.get('MODEL_ID', 'us.amazon.nova-2-lite-v1:0')
 BEDROCK_REGION = os.environ.get('BEDROCK_REGION', 'us-east-1')
+INFERENCE_PROFILE_ARN = os.environ.get('INFERENCE_PROFILE_ARN', '')
 
 # Create Bedrock client
 client = boto3.client('bedrock-agent-runtime', region_name=BEDROCK_REGION)
 
-# Construct model ARN from region and model ID
-MODEL_ARN = f"arn:aws:bedrock:{BEDROCK_REGION}::foundation-model/{MODEL_ID}"
+# Use inference profile ARN if provided, otherwise construct model ARN from region and model ID
+if INFERENCE_PROFILE_ARN:
+    MODEL_ARN = INFERENCE_PROFILE_ARN
+else:
+    MODEL_ARN = f"arn:aws:bedrock:{BEDROCK_REGION}::foundation-model/{MODEL_ID}"
 
 retrieve_generate_config = {
     'type': 'KNOWLEDGE_BASE',

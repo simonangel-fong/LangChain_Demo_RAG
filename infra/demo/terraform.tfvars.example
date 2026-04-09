@@ -1,0 +1,3 @@
+aws_region                    = ""
+bedrock_region                = ""
+bedrock_inference_profile_arn = ""

@@ -44,7 +44,7 @@ question = "Who is covered by this leave policy?"
 
 # 8. Retrieve relevant chunks
 retrieved_docs = retriever.invoke(question)
-# print(retrieved_docs)
+print(retrieved_docs)
 
 # 9. Build context string
 context_text = "\n\n".join(
@@ -53,7 +53,7 @@ context_text = "\n\n".join(
         for doc in retrieved_docs
     ]
 )
-# print(context_text)
+print(context_text)
 # Page 6: employee must apply the sick leave in the prescribed online platform immediately on return to 
 # work.
 
@@ -101,11 +101,11 @@ Please answer clearly and briefly.
 """
     ),
 ]
-# print(messages)
+print(messages)
 # [SystemMessage(content="You are a helpful assistant for question answering over a PDF. Answer only from the provided context. If the answer is not in the context, say: 'I do not know based on the provided document.'", additional_kwargs={}, response_metadata={}), HumanMessage(content='\nContext:\nPage 6: employee must apply the sick leave in the prescribed online platform immediately on return to \nwork. \n \nAny misuse of the sick leave provision will attract disciplinary action and may lead to termination \nof an employee. \n \n4.5 Maternity Leave  \n \nEligibility - Total of 26 weeks twice in the service tenure as governed by ‘The Maternity \nBenefit Act” & Maternity Benefit (amendment) Bill 2017.  \nApart from the standard Maternity leaves mentioned above, women will be\n\nPage 4: proceeding on leave desires an extension thereof, he/she shall make an application in writing \nto the company for this purpose. \n5. The Management reserves the right to reject or extend the leave at its discretion and without \nassigning any reason whatsoever. \n6. When an employee takes a PL, weekend and other holidays will not be included while \ncalculating leave. \n7. In the event of the an employee resigning, retrenchment or termination of services by the\n\nPage 6: pregnancy/ or leave for miscarriage, the request for such leave needs to be forwarded to \nimmediate supervisor along with supporting medical documents. \n\uf0b7 On approval of the leave, the leave details are to be updated along with necessary \ndocuments in the leave management system.\n\nQuestion:\nWho is eligible for leave?\n\nPlease answer clearly and briefly.\n', additional_kwargs={}, response_metadata={})]
 
 response = llm.invoke(messages)
-# print(response)
+print(response)
 # content='Based on the provided context, the following employees are eligible for leave:\n\n1. Employees are eligible for sick leave, which they must apply for immediately on return to work through the prescribed online platform. Misuse of sick leave can lead to disciplinary action and termination.\n\n2. Employees are eligible for maternity leave, with a total of 26 weeks of maternity leave twice during their service tenure, as governed by the Maternity Benefit Act and Maternity Benefit (Amendment) Bill 2017.\n\n3. Employees can apply for an extension of their personal leave, and the management reserves the right to reject or extend the leave at its discretion.\n\n4. Employees who are proceeding on leave can request an extension in writing to the company.\n\nI do not have enough information from the provided context to determine if there are any other types of leave that employees are eligible for.' additional_kwargs={} response_metadata={'ResponseMetadata': {'RequestId': '6cf6c80d-37b7-45f4-8d13-e7156e672962', 'HTTPStatusCode': 200, 'HTTPHeaders': {'date': 'Wed, 08 Apr 2026 21:49:00 GMT', 'content-type': 'application/json', 'content-length': '1107', 'connection': 'keep-alive', 'x-amzn-requestid': '6cf6c80d-37b7-45f4-8d13-e7156e672962'}, 'RetryAttempts': 0}, 'stopReason': 'end_turn', 'metrics': {'latencyMs': [2212]}, 'model_provider': 'bedrock_converse', 'model_name': 'anthropic.claude-3-haiku-20240307-v1:0'} id='lc_run--019d6f11-ea15-7760-8fe4-1392b5828a22-0' tool_calls=[] invalid_tool_calls=[] usage_metadata={'input_tokens': 377, 'output_tokens': 194, 'total_tokens': 571, 'input_token_details': {'cache_creation': 0, 'cache_read': 0}}
 
 # 11. Print answer

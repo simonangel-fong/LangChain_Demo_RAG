@@ -59,9 +59,10 @@ resource "aws_lambda_function" "main" {
 
   environment {
     variables = {
-      KB_ID          = module.bedrock_kb.knowledge_base_id
-      MODEL_ID       = var.bedrock_model_id
-      BEDROCK_REGION = var.bedrock_region
+      KB_ID                 = module.bedrock_kb.knowledge_base_id
+      MODEL_ID              = var.bedrock_model_id
+      BEDROCK_REGION        = local.bedrock_region
+      INFERENCE_PROFILE_ARN = var.bedrock_inference_profile_arn
     }
   }
 }

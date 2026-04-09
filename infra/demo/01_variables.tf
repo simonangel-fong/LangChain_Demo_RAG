@@ -26,7 +26,6 @@ variable "embedding_model" {
   default = "amazon.titan-embed-text-v2:0"
 }
 
-
 ##############################
 # AWS lambda
 ##############################
@@ -60,18 +59,22 @@ variable "lambda_runtime" {
 variable "bedrock_model_id" {
   description = "The Bedrock model ID for text generation"
   type        = string
-  default     = "us.amazon.nova-2-lite-v1:0"
+  # default     = "us.amazon.nova-2-lite-v1:0"
+  default = "amazon.nova-lite-v1:0"
+}
+
+variable "bedrock_inference_profile_arn" {
+  description = "ARN of the Bedrock inference profile (if using provisioned throughput)"
+  type        = string
+  default     = ""
 }
 
 variable "bedrock_region" {
-  description = "AWS region for Bedrock service"
+  description = "AWS region for Bedrock service (defaults to aws_region)"
   type        = string
-  default     = "us-east-1"
+  default     = ""
 }
 
-##############################
-# API Gateway
-##############################
 ##############################
 # AWS API Gateway
 ##############################

@@ -1,0 +1,7 @@
+```sh
+terraform -chdir=infra/demo init -backend-config=backend.config -reconfigure
+terraform -chdir=infra/demo fmt && terraform -chdir=infra/demo validate
+terraform -chdir=infra/demo apply -auto-approve
+
+terraform -chdir=infra/demo destroy -auto-approve
+```
