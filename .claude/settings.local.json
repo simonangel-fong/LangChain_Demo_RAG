@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(wc -l /c/Users/simon/OneDrive/Tech/Github/LangChain_Demo_RAG/infra/*.tf)"
+    ]
+  }
+}
